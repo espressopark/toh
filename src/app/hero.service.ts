@@ -22,6 +22,9 @@ export class HeroService {
   }
 
   getHero(hero_id: number): Observable<Hero> {
-    return of( HEROES.find(element => element.hero_id === hero_id)).pipe(delay(1000));
+    // return of( HEROES.find(element => element.hero_id === hero_id)).pipe(delay(1000));
+    // es6 template string : '${자바스크립트변수}'
+    return this.http.get<Hero>(`${environment.HOST}/api/hero/${hero_id}`);
+    // return this.http.get<Hero>('${environment.HOST}/api/hero/${}');
   }
 }
