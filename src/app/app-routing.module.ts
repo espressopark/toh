@@ -3,11 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import {TodoComponent} from './todo/todo.component';
 import {HeroesComponent} from './heroes/heroes.component';
 import {HomeComponent} from './home/home.component';
+import {HeroDetailComponent} from './hero-detail/hero-detail.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'heroes', component: HeroesComponent},
   {path: 'todo', component: TodoComponent},
+  {path: 'detail/:hero_id', component: HeroDetailComponent},
   // {path: '', redirectTo: '/home'}
 ];
 
