@@ -1,3 +1,36 @@
 <p>
-  heroes works!
+  {{hero.id}}: {{hero.name}}
 </p>
+
+<ul class="w-50">
+  <li class="d-flex m-1" *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
+    <span class="rounded-left p-2 bg-primary text-light">{{hero.id}}</span>
+    <div class="rounded-right p-2 bg-light text-dark w-100">{{hero.name}}</div>
+  </li>
+</ul>
+
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+
+
+<!--<div>-->
+  <!--<label>name:-->
+    <!--<input [(ngModel)]="hero.name" placeholder="name">-->
+  <!--</label>-->
+<!--</div>-->
+
+<!--<div>-->
+  <!--<button [disabled]="isSpecial">propery binding button</button>-->
+<!--</div>-->
+
+<!--<div>-->
+  <!--<div [class.special]="isSpecial">class binding button</div>-->
+<!--</div>-->
+
+<!--<div>-->
+  <!--<button [style.color]="isSpecial ? 'red' : 'green'">style binding button</button>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;이벤트 바인딩&ndash;&gt;-->
+<!--<div>-->
+  <!--<button (click)="onSave($event)">event binding save button</button>-->
+<!--</div>-->
