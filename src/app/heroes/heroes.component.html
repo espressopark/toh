@@ -2,12 +2,12 @@
   <router-outlet></router-outlet>
 </div>
 <p>
-  {{hero.id}}: {{hero.name}}
+  {{hero.hero_id}}: {{hero.name}}
 </p>
 
 <ul class="w-50">
-  <li class="d-flex m-1" *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero" routerLink="/heroes/{{hero.id}}">
-    <span class="rounded-left p-2 bg-primary text-light">{{hero.id}}</span>
+  <li class="d-flex m-1" *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero" routerLink="/heroes/{{hero.hero_id}}">
+    <span class="rounded-left p-2 bg-primary text-light">{{hero.hero_id}}</span>
     <div class="rounded-right p-2 bg-light text-dark w-100">{{hero.name}}</div>
   </li>
 </ul>

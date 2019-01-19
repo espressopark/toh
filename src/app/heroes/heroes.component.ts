@@ -13,7 +13,7 @@ import {NavigationEnd, Router} from '@angular/router';
 export class HeroesComponent implements OnInit {
   // 1) 리터럴 객체로 객체 생성
   // hero: Hero = {
-  //   id: 11,
+  //   hero_id: 11,
   //   name: 'Winstorm'
   // };
   hero: Hero;
@@ -26,7 +26,7 @@ export class HeroesComponent implements OnInit {
   constructor(private heroService: HeroService, private router: Router) {
     // 2) new 키워드로 객체 생성
     this.hero = new Hero(11, 'Winstorm');
-    // id, name은 무슨 값이 할당되는가?
+    // hero_id, name은 무슨 값이 할당되는가?
     console.log('hero: ', this.hero);
 
     // 의존적인 코드
@@ -41,7 +41,7 @@ export class HeroesComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
         if (this.heroes) {
-          this.selectedHero = this.heroes.find(item => item.id === data);
+          this.selectedHero = this.heroes.find(item => item.hero_id === data);
         }
       });
 
