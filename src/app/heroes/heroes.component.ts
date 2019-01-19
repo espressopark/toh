@@ -33,6 +33,15 @@ export class HeroesComponent implements OnInit {
       .subscribe(data => {
         this.heroes = data;
     });
+
+    // 1)자식 컴포넌트가 변경되었다는 것을 알기 위해서 subscribe
+    this.heroService.refresh$
+      .subscribe(data => {
+        console.log(data);
+        if (this.heroes){
+          this.selectedHero = this.heroes.find(item => item.id === data);
+        }
+      });
   }
 
   ngOnInit() {

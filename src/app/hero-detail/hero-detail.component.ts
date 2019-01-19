@@ -17,6 +17,9 @@ export class HeroDetailComponent implements OnInit {
       .subscribe(params => {
         console.log(params); // {hero_id: "13"}
         this.getHero(+params['hero_id']); // +는 string을 number로 변환
+
+        // 2) 변경된 라우팅 정보를 부모에게 publisher
+        this.heroService.refresh.next(+params['hero_id']);
       });
   }
 
