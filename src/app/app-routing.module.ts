@@ -7,9 +7,11 @@ import {HeroDetailComponent} from './hero-detail/hero-detail.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
-  {path: 'heroes', component: HeroesComponent},
+  {path: 'heroes', component: HeroesComponent, children: [
+      {path: ':hero_id', component: HeroDetailComponent}
+    ]}, // 전체 url: /heroes/11
   {path: 'todo', component: TodoComponent},
-  {path: 'detail/:hero_id', component: HeroDetailComponent},
+
   // {path: '', redirectTo: '/home'}
 ];
 

@@ -14,4 +14,8 @@ export class HeroService {
   getHeroes(): Observable<Hero[]> {
     return of(HEROES).pipe(delay(1000));
   }
+
+  getHero(hero_id: number): Observable<Hero> {
+    return of( HEROES.find(element => element.id === hero_id)).pipe(delay(1000));
+  }
 }
