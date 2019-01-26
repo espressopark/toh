@@ -33,7 +33,7 @@
       <td>{{todo.isFinished ? '완료' : '미완료'}}</td>
       <td [class.todo-finished]="todo.isFinished">{{todo.todo}}</td>
       <td>{{todo.created | mydate}}</td>
-      <td>{{todo.updated}}</td>
+      <td>{{todo.updated | date: 'yyyy-MM-dd HH:mm'}}</td>
       <td>
         <button class="btn btn-success btn-sm" (click)="save(todo)">수정</button>
         <button class="btn btn-danger btn-sm ml-1" (click)="remove(todo)">삭제</button>
