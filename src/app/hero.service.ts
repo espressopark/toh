@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import {HEROES} from './mock-heroes';
 import {Hero} from './hero';
 import {Observable, of, Subject} from 'rxjs';
 import {delay} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../environments/environment';
+import {TodoVo} from './domain/todo.vo';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +26,9 @@ export class HeroService {
     // es6 template string : '${자바스크립트변수}'
     return this.http.get<Hero>(`${environment.HOST}/api/hero/${hero_id}`);
     // return this.http.get<Hero>('${environment.HOST}/api/hero/${}');
+  }
+
+  getTodoList() {
+    return this.http.get<TodoVo[]>(environment.HOST + '/api/todo');
   }
 }

@@ -9,6 +9,7 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HomeComponent } from './home/home.component';
 import { TodoComponent } from './todo/todo.component';
 import {HttpClientModule} from '@angular/common/http';
+import { JqueryComponent } from './jquery/jquery.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {HttpClientModule} from '@angular/common/http';
     HeroesComponent,
     HeroDetailComponent,
     HomeComponent,
-    TodoComponent
+    TodoComponent,
+    JqueryComponent
   ],
   imports: [
     BrowserModule,
