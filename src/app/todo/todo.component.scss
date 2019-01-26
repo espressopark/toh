@@ -1,1 +1,11 @@
 .todo-finished {text-decoration: line-through;}
+
+
+button:disabled {
+  background-color: #eee;
+  color: #aaa;
+  cursor: auto;
+  &:hover {
+    cursor: not-allowed;
+  }
+}
