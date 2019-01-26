@@ -68,4 +68,21 @@ export class TodoComponent implements OnInit {
         todo.isEdited = false;
       });
   }
+  remove(todo: TodoVo) {
+    if (confirm('삭제하시겠습니까?')) {
+      this.heroService.removeTodo(todo.todo_id)
+        .subscribe(data => {
+          if (data.result === 0) {
+            // 데이터에서 삭제
+            // 1) index 찾기
+            const index = this.todoList.findIndex(item => item.todo_id === todo.todo_id);
+
+            // 2) splice 로 삭제하기
+            this.todoList.splice(index, 1);
+
+            // 삭제 메시지 보여주기
+          }
+        });
+    }
+  }
 }

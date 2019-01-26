@@ -5,6 +5,7 @@ import {delay} from 'rxjs/operators';
 import {HttpClient, HttpHandler, HttpHeaders} from '@angular/common/http';
 import {environment} from '../environments/environment';
 import {TodoVo} from './domain/todo.vo';
+import {ResultVo} from './domain/result.vo';
 
 @Injectable({
   providedIn: 'root'
@@ -38,7 +39,11 @@ export class HeroService {
     return this.http.post<TodoVo>(environment.HOST + '/api/todo', params, {headers: header});
   }
 
-  modifyTodo(params: TodoVo) {
-    return this.http.put(environment.HOST + '/api/todo', params);
+  modifyTodo(params: TodoVo): Observable<TodoVo> {
+    return this.http.put<TodoVo>(environment.HOST + '/api/todo', params);
+  }
+
+  removeTodo(todo_id: number): Observable<ResultVo> {
+    return this.http.delete<ResultVo>(`${environment.HOST}/api/todo?todo_id=${todo_id}`);
   }
 }
