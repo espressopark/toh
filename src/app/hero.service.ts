@@ -37,4 +37,8 @@ export class HeroService {
     header.append('Content-Type', 'application/json');
     return this.http.post<TodoVo>(environment.HOST + '/api/todo', params, {headers: header});
   }
+
+  modifyTodo(params: TodoVo) {
+    return this.http.put(environment.HOST + '/api/todo', params);
+  }
 }

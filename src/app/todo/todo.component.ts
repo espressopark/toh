@@ -60,4 +60,12 @@ export class TodoComponent implements OnInit {
     const tempTodo = this.tempMap.get(todo.todo_id);
     todo.todo = tempTodo.todo;
   }
+  modify(todo: TodoVo) {
+    this.heroService.modifyTodo(todo)
+      .subscribe(data=>{
+        Object.assign(todo, data);
+        // 일반템플릿으로 변경
+        todo.isEdited = false;
+      });
+  }
 }
