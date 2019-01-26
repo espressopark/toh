@@ -16,6 +16,8 @@ export class TodoComponent implements OnInit {
 
   todoList: TodoVo[];
 
+  newTodo = new TodoVo(); // 할일 추가하기 위한 모델
+
   constructor(private heroService: HeroService) { }
 
   ngOnInit() {
@@ -26,4 +28,18 @@ export class TodoComponent implements OnInit {
       });
   }
 
+  addTodo() {
+    // this.newTodo 가 request의 바디로 날아가는데, 투두의 속성외에 나마지 속성은 어떻게 되는가? -> undefined 되는데, 자동으로 빠짐.
+    // 바디에 데이터를 보낼때, stringy를 해야하는가? -> 안해도 된다.
+    // content-type 을 명시해야 하는가? -> 자동으로 된다.
+    // this.heroService.addTodo(this.newTodo)
+    this.heroService.addTodo(this.newTodo)
+      .subscribe(data => {
+        console.log(data);
+        // 입력폼 초기화
+        this.newTodo = new TodoVo();
+        // 추가된 데이터를 맨위로 올려서 뷰 갱신
+        this.todoList.unshift(data);
+      });
+  }
 }

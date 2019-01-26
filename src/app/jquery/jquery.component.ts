@@ -53,4 +53,35 @@ export class JqueryComponent implements OnInit {
       $('#todo_list').append(todo);
     });
   }
+
+  add_todo() {
+    $.ajax({
+      url: 'http://www.javabrain.kr:8080/api/todo',
+      method: 'POST',
+      data: JSON.stringify({todo: $('#input_todo').val(), isFinished: false}),
+      contentType: 'application/json',
+      dataType: 'json',
+      success: data => {
+        this.todoList.unshift(data);
+
+        // 뷰 생성
+        let todo =
+          '<tr>' +
+          '<td>' +
+          (data.isFinished ? '완료' : '미완료') +
+          '</td>' +
+          (data.isFinished ? '<td style="text-decoration: line-through">' : '<td>') + data.todo + '</td>' +
+          '<td>' + data.created + '</td>' +
+          '<td>' + data.updated + '</td>' +
+          '<td>' +
+          '<button type="button">삭제</button>' +
+          '</td>' +
+          '</tr>';
+        $('#todo_list').prepend(todo);
+
+        // input clear
+        $('#input_todo').val('');
+      }
+    });
+  }
 }
