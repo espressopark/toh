@@ -32,7 +32,7 @@
     <tr *ngIf="!todo.isEdited">
       <td>{{todo.isFinished ? '완료' : '미완료'}}</td>
       <td [class.todo-finished]="todo.isFinished">{{todo.todo}}</td>
-      <td>{{todo.created}}</td>
+      <td>{{todo.created | mydate}}</td>
       <td>{{todo.updated}}</td>
       <td>
         <button class="btn btn-success btn-sm" (click)="save(todo)">수정</button>
@@ -60,3 +60,7 @@
   </ng-template>
   </tbody>
 </table>
+
+
+
+{{10000000000|number}}
