@@ -11,6 +11,7 @@ import { TodoComponent } from './todo/todo.component';
 import {HttpClientModule} from '@angular/common/http';
 import { JqueryComponent } from './jquery/jquery.component';
 import { MydatePipe } from './mydate.pipe';
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MydatePipe } from './mydate.pipe';
     HomeComponent,
     TodoComponent,
     JqueryComponent,
-    MydatePipe
+    MydatePipe,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
