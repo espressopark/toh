@@ -11,10 +11,10 @@ export class RegisterHeroComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
-      name: [null, Validators.required],
-      email: null,
-      sex: null,
-      country: null,
+      name: [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(10)])],
+      email: [null, Validators.compose([Validators.required, Validators.email])],
+      sex: [null, Validators.required],
+      country: [null, Validators.required],
       address: null
     });
   }
@@ -26,6 +26,11 @@ export class RegisterHeroComponent implements OnInit {
     console.log(this.form);
     if (!this.form.valid) {
       // 모든 invalid 필드를 표시
+      // to validate all form fields
+      Object.keys(this.form.controls).forEach(key => {
+        const control = this.form.controls[key];
+        control.markAsTouched({onlySelf: true});
+      });
       return;
     }
 
