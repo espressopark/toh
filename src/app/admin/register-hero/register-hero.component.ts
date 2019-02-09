@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-register-hero',
@@ -11,7 +11,7 @@ export class RegisterHeroComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
-      name: null,
+      name: [null, Validators.required],
       email: null,
       sex: null,
       country: null,
@@ -22,4 +22,13 @@ export class RegisterHeroComponent implements OnInit {
   ngOnInit() {
   }
 
+  register() {
+    console.log(this.form);
+    if (!this.form.valid) {
+      // 모든 invalid 필드를 표시
+      return;
+    }
+
+    // 서버연동하여 등록
+  }
 }
