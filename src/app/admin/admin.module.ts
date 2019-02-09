@@ -11,6 +11,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastrModule} from 'ngx-toastr';
 import {BrowserModule} from '@angular/platform-browser';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ManageDialogComponent } from './manage-hero/manage-dialog/manage-dialog.component';
 
 const routes: Routes = [
   {path: '', component: IndexComponent, children: [
@@ -21,13 +23,15 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [IndexComponent, RegisterHeroComponent, ManageHeroComponent, DashboardComponent],
+  declarations: [IndexComponent, RegisterHeroComponent, ManageHeroComponent, DashboardComponent, ManageDialogComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule,
   ],
-  providers: [AdminService]
+  providers: [AdminService],
+  entryComponents: [ManageDialogComponent]
 })
 export class AdminModule { }
