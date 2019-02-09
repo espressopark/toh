@@ -44,6 +44,10 @@ export class TodoComponent implements OnInit {
         this.pageVo.totalCount = body.total;
       });
   }
+  pageRefresh() {
+    // pageIndex는 이미 양방향바인딩으로 인해서 갱신이 되었다.
+    this.getTodoList();
+  }
 
   addTodo() {
     // this.newTodo 가 request의 바디로 날아가는데, 투두의 속성외에 나마지 속성은 어떻게 되는가? -> undefined 되는데, 자동으로 빠짐.

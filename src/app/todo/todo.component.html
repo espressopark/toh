@@ -61,6 +61,12 @@
   </tbody>
 </table>
 
-
+<ngb-pagination
+  [maxSize]="5"
+  [(page)]="pageVo.pageIndex"
+  [pageSize]="pageVo.pageSize"
+  [collectionSize]="pageVo.totalCount" (pageChange)="pageRefresh()"
+  class="d-flex justify-content-center">
+</ngb-pagination>
 
 {{10000000000|number}}
